@@ -1,0 +1,20 @@
+{% if items %}
+    {% if category %}
+        <a href="{% url 'index' %}"> Inicio </a>/{{category}}
+        <ul>
+        {% for item in items %}
+            <li><a href="{% url 'item' item.item_number%}"> {{item.item_number}} </a>  {{item.name}}  : {{item.description}}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <a href="{% url 'index' %}"> Inicio </a>
+        <ul>
+        {% for item in items %}
+            <li><a href="{% url 'items' item.0%}"> {{item.0}} </a> {{item.0}}  : {{item.1}}</li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% else %}
+    <a href="{% url 'index' %}"> Inicio </a>
+    <p>No items are available en items.</p>
+{% endif %}

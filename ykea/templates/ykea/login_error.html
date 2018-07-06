@@ -1,0 +1,80 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+                <link rel="stylesheet" href="{% static 'css/lerror.css' %}">
+                    <link href="/static/favicon.ico" rel="shortcut icon">
+                        <link href="//fonts.googleapis.com/css?family=Dosis|Lobster" rel="stylesheet" type="text/css">
+                            <title>Index</title>
+                            
+                            </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <div id="container-header">
+                    <div id="content-leftHeader">
+                        <a href="/ykea"><img src="../static/media/logo.png"></a>
+                    </div>
+                    <div id="content-rightHeader">
+                        <!-- Para mostrar login o register segun el caso -->
+                        {% if user.is_authenticated %}
+                        <!-- SI EL USUARIO ESTA LOGUEADO -->
+                        <div id="contentRight">
+                            <a href="/ykea/buy"><button>Cart</button></a>
+                            <a href="/accounts/logout/"><button>Logout</button></a>
+                        </div>
+                        {% else %}
+                        <div id="contentRight">
+                            <a href="/ykea/buy"><button>Cart</button></a>
+                            <a href="/accounts/login/"><button>Log-in</button></a>
+                            <a href="/ykea/register/"><button>Register</button></a>
+                        </div>
+                        
+                        {% endif %}
+                    </div>
+                    
+                    <div id="content-centerFooter">
+                        
+                    </div>
+                    
+                </div>
+            </div>
+<div class="lout">{% block content %}
+
+  {% if form.errors %}
+    <p class="error">Sorry, that's not a valid username or password</p>
+  {% endif %}
+
+  <form action="" method="post">
+    {% csrf_token %}
+    <label for="username">User name:</label>
+    <input type="text" name="username" value="" id="username">
+    <label for="password">Password:</label>
+    <input type="password" name="password" value="" id="password">
+    <input type="hidden" name="next" value="{{ next|escape }}" />
+    <input type="submit" value="login" />
+  </form>
+
+{% endblock %}</div>
+<!--Page Footer-->
+<div id="footer">
+    <div id="container-footer">
+        <div id="content-leftFooter">
+            <h3>Copyright 2018 Marlon e Hicham</h3>
+            <h3>Universitat de Barcelona</h3>
+        </div>
+        <div id="content-rightFooter">
+            <h3><a href="/admin">Zona admin </a></h3>
+        </div>
+        <div id="content-centerFooter">
+            <h1><a href="/ykea">Ykea</a></h1>
+        </div>
+    </div>
+</div>
+        </div>
+        
+    </body>
+    
+</html>

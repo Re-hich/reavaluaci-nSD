@@ -1,0 +1,158 @@
+[
+  {
+    "model": "ykea.Item",
+    "pk": 1,
+    "fields": {
+      "item_number": "09186777",
+      "name": "KONGSWDFJORD",
+      "description" :"Divan bed, Hyllestad firm, Tustna dark grey",
+      "price" : "1488",
+      "is_new" : "True",
+      "size" : "160x200 cm",
+      "category" : "beds"
+    }
+  },
+   {
+   "model": "ykea.Item",
+    "pk": 2,
+    "fields": {
+      "item_number": "09186126",
+      "name": "HEMNES",
+      "description" :"Bed frame with storage",
+      "price" : "479",
+      "is_new" : "False",
+      "size" : "80x200 cm",
+      "category" : "beds"
+    }
+  },
+   {
+   "model": "ykea.Item",
+    "pk": 3,
+    "fields": {
+      "item_number": "10247973",
+      "name": "SVÄRTA",
+      "description" :"Bunk bed frame",
+      "price" : "149",
+      "is_new" : "False",
+      "size" : "90x200 cm",
+      "category" : "beds"
+    }
+  },
+   {
+   "model": "ykea.Item",
+    "pk": 4,
+    "fields": {
+      "item_number": "29209947",
+      "name": "ESPEVÄR",
+      "description" :"Divan bed, Hövåg medium firm, Tussöy dark grey",
+      "price" : "728",
+      "is_new" : "True",
+      "size" : "160x200 cm",
+      "category" : "beds"
+    }
+  },
+   {
+   "model": "ykea.Item",
+    "pk": 5,
+    "fields": {
+      "item_number": "50386245",
+      "name": "MÖRBYLÅNGA",
+      "description" :"Table, oak veneer brown stained",
+      "price" : "499",
+      "is_new" : "False",
+      "size" : "140x85 cm",
+      "category" : "table"
+    }
+  },
+   {
+   "model": "ykea.Item",
+    "pk": 6,
+    "fields": {
+      "item_number": "70221423",
+      "name": "INGATORP",
+      "description" :"Extendable table, white",
+      "price" : "249",
+      "is_new" : "False",
+      "size" : "155/215x87 cm",
+      "category" : "table"
+    }
+  },
+   {
+   "model": "ykea.Item",
+    "pk": 7,
+    "fields": {
+      "item_number": "20378807",
+      "name": "SKOGSTA",
+      "description" :"Dining table, acacia",
+      "price" : "449",
+      "is_new" : "False",
+      "size" : "235x100 cm",
+      "category" : "table"
+    }
+  },
+   {
+   "model": "ykea.Item",
+    "pk": 8,
+    "fields": {
+      "item_number": "70294346",
+      "name": "GISSLABODA",
+      "description" :"Drop-leaf table, white",
+      "price" : "129",
+      "is_new" : "False",
+      "size" : "38/77/116x95 cm",
+      "category" : "table"
+    }
+  },
+   {
+   "model": "ykea.Item",
+    "pk": 9,
+    "fields": {
+      "item_number": "69222225",
+      "name": "FLOTTEBO",
+      "description" :"Sofa-bed with side table, Lysed dark grey",
+      "price" : "579",
+      "is_new" : "False",
+      "size" : "200x79x120 cm",
+      "category" : "sofa"
+    }
+  },
+   {
+   "model": "ykea.Item",
+    "pk": 10,
+    "fields": {
+      "item_number": "49031873",
+      "name": "LANDSKRONA",
+      "description" :"3-seat sofa, with chaise longue Grann, Bomstad Grann/Bomstad black/metal",
+      "price" : "1249",
+      "is_new" : "False",
+      "size" : "78x242x158 cm",
+      "category" : "sofa"
+    }
+  },
+   {
+   "model": "ykea.Item",
+    "pk": 11,
+    "fields": {
+      "item_number": "19254780",
+      "name": "GRÖNLID",
+      "description" :"2-seat sofa, Inseros white",
+      "price" : "399",
+      "is_new" : "True",
+      "size" : "68x177x98 cm",
+      "category" : "sofa"
+    }
+  },
+   {
+   "model": "ykea.Item",
+    "pk": 12,
+    "fields": {
+      "item_number": "59259691",
+      "name": "DELAKTIG",
+      "description" :"3-seat sofa, Hillared dark blue",
+      "price" : "799",
+      "is_new" : "True",
+      "size" : "45x204x84 cm",
+      "category" : "sofa"
+    }
+  }
+]

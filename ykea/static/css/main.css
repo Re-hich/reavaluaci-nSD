@@ -1,0 +1,215 @@
+body {
+	height: auto;
+	background-color: rgb(81, 81, 81);
+}
+
+.logo{
+	width: 50px;
+	height: 20px;
+}
+
+.headerImage {
+	width: 100%;
+	margin: -34% 0% 0% 0%;
+	height: auto;
+}
+
+.headerImageDiv {
+	height: 40%;
+	overflow: hidden;
+	margin-top: -20px;
+}
+
+.mainDiv{
+	width: 70%;
+	height: auto;
+	margin: 0 auto;
+	padding: 1%;
+	border-radius: 5px;
+}
+
+#jumbo1 {
+	padding: 1%;
+	text-align: center;
+}
+
+#table_resum th {
+	text-align: center;
+} 
+
+#table_resum td {
+	text-align: center;
+}
+
+label {
+	margin-right: 5px;
+}
+
+.flightInfo {
+	border-radius: 5px;
+	background-color: #f8f8f8;
+	padding: 10px 5px 5px 10px;
+}
+
+.checkinWidget{
+	float: right;
+	margin-top: 5px;
+}
+
+.categ {
+	display: inline-block; 
+	width: 300px; 
+	height: 250px; 
+	text-align: center; 
+	margin-bottom: 10px;
+}
+
+#headerImageDiv2 {
+	background-image: url('../images/fondo_home.jpg');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+}
+
+#beds {
+	background-image: url('../images/Bed.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}
+
+#furn {
+	background-image: url('../images/Furn.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}
+
+#sofa {
+	background-image: url('../images/Sofa.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}
+
+#table {
+	background-image: url('../images/Table.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}
+
+#texti {
+	background-image: url('../images/Textiles.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}
+
+#deco {
+	background-image: url('../images/Mirrors.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}
+
+#light {
+	background-image: url('../images/Light.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}
+
+#cook {
+	background-image: url('../images/Cook.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}
+
+#tablw {
+	background-image: url('../images/Tablew.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}
+
+#taps {
+	background-image: url('../images/Taps.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}
+
+#org {
+	background-image: url('../images/Organize.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}
+
+#toys {
+	background-image: url('../images/Toys.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}
+
+#leis {
+	background-image: url('../images/Leisure.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}
+
+#safe {
+	background-image: url('../images/Safe.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}
+
+#diy {
+	background-image: url('../images/Doit.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}
+
+#floor {
+	background-image: url('../images/Floor.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}
+
+#plant {
+	background-image: url('../images/Garden.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}
+
+#food {
+	background-image: url('../images/Food.png');  
+	background-repeat: no-repeat;  
+	background-size: 100% 100%;
+	width: 100%;
+	height: 80%;
+}

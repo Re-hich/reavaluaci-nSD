@@ -1,0 +1,146 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+  <title>Ykea</title>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{% static 'css/main.css' %}">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+  </head>
+
+  <body>
+  
+  
+  <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">Ykea</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class=""><a href="/ykea/">Home</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+    {%if user.is_authenticated %}
+    <li class=""><a href="/ykea/history">Bill</a></li>
+    <li class="active"><a href="#">Comparador</a></li>
+      <li><a href="/ykea/accounts/logout">{{user}} <span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+    {% else %}
+      <li><a href="/ykea/register"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
+      <li><a href="/ykea/accounts/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    {% endif %}
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+    <div>
+        Categoria:
+        <select class="form-control" id="categoria">
+            {% for dic in category %}
+            <option>{{dic.category}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <br/>
+    <div>
+    Precio:
+        <input class="form-control" type="number" value="0" min="0" id="precio"/>
+    </div>
+    <br/>
+    <div>
+        Nuevo?
+        <input type=checkbox id="nuevo" value="yes"/>
+    </div>
+    <br/>
+    <div>
+        <input type="button" onclick="myFunction()" name="search" value="Compara">
+    </div>
+    
+    <p id="demo"></p>
+    <div>
+        Productos aqui:
+        <form action="{% url 'shoppingcart' %}" method="post">
+        {% csrf_token %}
+            <div id="productos"></div>
+            <input class="btn btn-primary center-block" type="submit" value="Add to Shopping cart" />
+        </form>
+    </div>
+
+    <script>
+        function myFunction() {
+            //alert("entro");
+            
+            var requests = [];
+            var results = [];
+            
+            var ips = ['localhost:8000'];
+            //var ips= ['sd2018ykea-b5.herokuapp.com']
+            
+            var categoria = $('#categoria').val();
+            var precio = $('#precio').val();
+            var nuevo = $('#nuevo')[0].checked;
+            
+            if(nuevo)
+                nuevo='True';
+            else
+                nuevo='False';
+            
+            for(var i=0;i<ips.length; i++){
+                requests.push(
+                    $.ajax(
+                        {url:'http://'+ips[i]+'/api/items/?category='+categoria+'\&new='+nuevo+'\&price='+precio,
+                        /*
+                        * URL para localhost
+                        * url:'http://'+ips[i]+'/api/items/?category='+categoria+'\&new='+nuevo+'\&price='+precio
+                        */
+                        type:'GET',
+                        dataType:'json',
+                        success:[function(data){
+                            //alert("entro success");
+                            for(var j=0;j<data['results'].length;j++){
+                                results.push(data['results'][j]);
+                            }
+                        }]
+                        }
+                    )
+                );
+            }
+        
+        $.when.apply($,requests).then(function(){
+            var res = document.getElementById("productos").innerHTML;
+            res = "";
+            if(results.length > 0) {
+                res += "<h4> Items:</h4>";
+                res += "<ul>";
+                results.sort(function (a, b) {
+                    return parseFloat(a.price) - parseFloat(b.price);
+                });
+                for (var i = 0; i < results.length; i++) {
+                    res += '<li>' + results[i]['name'] + ' - ' + results[i]['price'] + '€' + '- <input type="checkbox" name="checkbox'+results[i]['item_number']+'" id="checkbox'+results[i]['item_number']+'" value="'+results[i]['item_number']+'"/><input type="number" name="numeric'+results[i]['item_number']+'" value="1" min="0" step="1" placeholder="0"/></li>';
+                }
+                res += "</ul>";
+            }
+            else{
+                res += "<h4>No hay items que comparar</h4>";
+            }
+            document.getElementById("productos").innerHTML = res;
+        })
+        }
+    </script>
+
+</div>
+
+
+
+
+</body>
+</html>

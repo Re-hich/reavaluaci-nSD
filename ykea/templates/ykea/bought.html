@@ -1,0 +1,127 @@
+{% load static %}
+<html>
+    <head>
+        <title>YKEA Your Purchases</title>
+
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+        <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" integrity="sha384-zF4BRsG/fLiTGfR9QL82DrilZxrwgY/+du4p/c7J72zZj+FLYq4zY00RylP9ZjiT" crossorigin="anonymous">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#checkin').each(function() {
+                    var elem = $(this);
+                    setInterval(function() {
+                        if (elem.css('background-color') == 'transparent') {
+                            elem.css('background-color', 'green');
+                        } else {
+                            elem.css('background-color', 'transparent');
+                        }    
+                    }, 500);
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <!-- Top menu -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <a class="navbar-brand" href="/ykea"><img class="logo" src="{% static 'images/Logo.png' %}" alt="YKEA"></a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="/ykea">Home <span class="sr-only">(current)</span></a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                Categories
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                {% if categories %}
+                                    {% for cat in categories %}
+                                        <li><a href="{% url 'items' cat.0%}" >{{cat.1}}</a></li>
+                                    {% endfor %}
+                                {% endif %}
+                            </ul>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="active"><a href="{% url 'shoppingcart' %}">Cart</a></li>
+                        {% if user.is_authenticated %}
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{user.username}} ({{money}}€)<span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="/accounts/logout">Log Out</a></li>
+                                    <li><a href="/ykea/bought">Purchases</a></li>
+                                </ul>
+                            </li>
+                        {% else %}
+                            <li><a href="/accounts/login">Login</a></li>
+                            <li><a href="/ykea/register/">Register</a></li>
+                        {% endif%}
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <!-- Page content -->
+
+        <!-- Header Image -->
+        <div class="headerImageDiv" id="headerImageDiv2">
+            
+        </div>
+        
+        <div class="mainDiv">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        Your <strong>Purchases</strong>
+                    </h3>
+                </div>
+                <div class="panel-body">
+                    <div class="container-fluid">
+                        {% if item %}
+                            <table id="table_resum">
+                            {% for it in item %}
+                                <tr>
+                                    <label>
+                                        <td style="padding: 10px;">
+                                            <div id="{{it.category}}" style="height: 80px; width: 80px;"></div>
+                                        <td>
+                                        <td style="padding: 10px;">
+                                            {{it.item_number}}
+                                        </td>
+                                        <td style="padding: 10px;">
+                                            {{it.name}}
+                                            {% if it.is_new %}
+                                                NEW!
+                                            {% endif %}
+                                        </td>
+                                        <td style="padding: 10px;">{{it.description}}</td>
+                                        <td style="padding: 10px;">{{it.size}}</td>
+                                        <td style="padding: 10px;">{{it.price}}</td>
+                                    </label>    
+                                </tr>
+                            {% endfor %}
+                            </table>
+                            <hr>
+                            <p>
+                                <h5>Your money: {{money}}</h5> 
+                            </p>
+                        {% else %}
+                            <p>You don't have any item in your purchase cart.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
